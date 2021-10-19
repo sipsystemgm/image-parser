@@ -1,5 +1,5 @@
 {
-    "name": "sip/image-parser",
+    "name": "sipsystemgm/image-parser",
     "description": "Symfony Image Parser",
     "license": "MIT",
     "autoload": {

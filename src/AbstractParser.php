@@ -23,23 +23,6 @@ abstract class AbstractParser implements ImageParserInterface
          return $this;
     }
 
-    protected function getTagValidator(string $tagName): ?TagValidatorInterface
-    {
-        if (!empty($this->tagValidators[$tagName])) {
-            return $this->tagValidators[$tagName];
-        }
-        return null;
-    }
-
-    protected function validateTag(string $tagName, string $value): bool
-    {
-        $validator = $this->getTagValidator($tagName);
-        if ($validator !== null) {
-            return $validator->attributeValidate($value);
-        }
-        return true;
-    }
-
     public function getImgLength(): int
     {
         return $this->imgLength;
@@ -58,12 +41,29 @@ abstract class AbstractParser implements ImageParserInterface
         return $this->links;
     }
 
+    protected function validateTag(string $tagName, string $value): bool
+    {
+        $validator = $this->getTagValidator($tagName);
+        if ($validator !== null) {
+            return $validator->attributeValidate($value);
+        }
+        return true;
+    }
+
     protected function addLinks(string $link): self
     {
         if (!in_array($link, $this->links)) {
             $this->links[] = $link;
         }
         return $this;
+    }
+
+    protected function getTagValidator(string $tagName): ?TagValidatorInterface
+    {
+        if (!empty($this->tagValidators[$tagName])) {
+            return $this->tagValidators[$tagName];
+        }
+        return null;
     }
 }
 
