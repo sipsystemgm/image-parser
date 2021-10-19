@@ -19,7 +19,7 @@ class SymfonyCrawlerParser extends AbstractParser
 
         foreach ($img as $tag) {
             $imgLink = (new Crawler($tag))->attr('src');
-            if ($this->validateTag('src', $imgLink)) {
+            if (!empty($imgLink) && $this->validateTag('src', $imgLink)) {
                 $this->imgLength ++;
             }
         }
@@ -32,7 +32,7 @@ class SymfonyCrawlerParser extends AbstractParser
 
         foreach ($links as $tag) {
             $link = (new Crawler($tag))->attr('href');
-            if ($this->validateTag('href', $link)) {
+            if (!empty($link) && $this->validateTag('href', $link)) {
                 $this->addLinks($link);
             }
         }
