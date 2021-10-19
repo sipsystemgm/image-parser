@@ -3,6 +3,7 @@
 namespace Sip\ImageParser\Test;
 
 use PHPUnit\Framework\TestCase;
+use Sip\ImageParser\PregParser;
 use Sip\ImageParser\SymfonyCrawlerParser;
 use Sip\ImageParser\TagUrlValidator;
 
@@ -21,7 +22,6 @@ class ImageParserTest extends TestCase
             ], $parser->getLinks());
 
             $this->assertEquals(2, $parser->getImgLength());
-            var_dump($parser->getExecutionTime()); die;
             $this->assertTrue($parser->getExecutionTime() > 0);
 
         }
@@ -54,8 +54,13 @@ class ImageParserTest extends TestCase
         $symfonyCrowler->addTagValidators('src', $tagUrlValidator);
         $symfonyCrowler->addTagValidators('href', $tagUrlValidator);
 
+        $pregParser = new PregParser();
+        $pregParser->addTagValidators('src', $tagUrlValidator);
+        $pregParser->addTagValidators('href', $tagUrlValidator);
+
         return [
-            $symfonyCrowler
+            $symfonyCrowler,
+            $pregParser
         ];
     }
 }

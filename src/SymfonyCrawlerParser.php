@@ -7,9 +7,15 @@ class SymfonyCrawlerParser extends AbstractParser
 {
     public function setHtml(string $html): self
     {
+        $this->parseImage($html);
+        $this->parseLink($html);
+        return $this;
+    }
+
+    protected function parseImage(string $html): void
+    {
         $crawler = new Crawler($html);
         $img = $crawler->filter('img');
-        $links = $crawler->filter('a');
 
         foreach ($img as $tag) {
             $imgLink = (new Crawler($tag))->attr('src');
@@ -17,6 +23,12 @@ class SymfonyCrawlerParser extends AbstractParser
                 $this->imgLength ++;
             }
         }
+    }
+
+    protected function parseLink(string $html): void
+    {
+        $crawler = new Crawler($html);
+        $links = $crawler->filter('a');
 
         foreach ($links as $tag) {
             $link = (new Crawler($tag))->attr('href');
@@ -24,6 +36,5 @@ class SymfonyCrawlerParser extends AbstractParser
                 $this->addLinks($link);
             }
         }
-        return $this;
     }
 }
