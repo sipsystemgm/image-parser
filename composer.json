@@ -14,12 +14,10 @@
             "email": "kostiaGm@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "require-dev": {
-        "phpunit/phpunit": "9.5.x-dev"
-    },
+    "minimum-stability": "stable",
     "require": {
-        "symfony/dom-crawler": "5.4.x-dev",
-        "symfony/css-selector": "5.4.x-dev"
+        "phpunit/phpunit": "^9.5",
+        "symfony/dom-crawler": "^5.3",
+        "symfony/css-selector": "^5.3"
     }
 }
