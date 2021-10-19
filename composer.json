@@ -1,0 +1,18 @@
+{
+    "name": "sip/image-parser",
+    "description": "Symfony Image Parser",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sip\\ImageParser\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anisimov Kostya",
+            "email": "kostiaGm@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
