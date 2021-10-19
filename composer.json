@@ -4,7 +4,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Sip\\ImageParser\\": "src/"
+            "Sip\\ImageParser\\": "src/",
+            "Sip\\ImageParser\\Test\\": "test/"
         }
     },
     "authors": [
@@ -14,5 +15,11 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "9.5.x-dev"
+    },
+    "require": {
+        "symfony/dom-crawler": "5.4.x-dev",
+        "symfony/css-selector": "5.4.x-dev"
+    }
 }
