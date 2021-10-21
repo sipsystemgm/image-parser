@@ -17,7 +17,7 @@ class ImageParserTest extends TestCase
             $parser->setHtml($html);
 
             $this->assertEquals([
-                "/page3.html",
+                "/page3 .  html",
                 "https://www.mydomain.com/page3.html"
             ], $parser->getLinks());
 
