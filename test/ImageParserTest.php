@@ -17,7 +17,7 @@ class ImageParserTest extends TestCase
             $parser->setHtml($html);
 
             $this->assertEquals([
-                "/page3 .  html",
+                "/page3.html",
                 "https://www.mydomain.com/page3.html"
             ], $parser->getLinks());
 
@@ -40,7 +40,8 @@ class ImageParserTest extends TestCase
                             <p>Hello Crawler!</p>
                             <a href="https://some-soft.com/page1.html">Page 1</a>
                             <a href="http://some-soft.com/page2.html">Page 2</a>
-                            <a href="/page3.html">Page 2</a>
+                            <a href="/page3 .  
+                             html">Page 2</a>
                             <a href="https://www.mydomain.com/page3.html">Page 2</a>
                         </body>
                     </html>';

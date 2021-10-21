@@ -53,7 +53,7 @@ abstract class AbstractParser implements ImageParserInterface
     protected function addLinks(string $link): self
     {
         if (!in_array($link, $this->links)) {
-            $this->links[] = str_replace(' ', '', $link);
+            $this->links[] = preg_replace('/\s+|\t+/', '', $link);
         }
         return $this;
     }
