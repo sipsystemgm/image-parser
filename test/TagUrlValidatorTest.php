@@ -5,7 +5,7 @@ namespace Sip\ImageParser\Test;
 use PHPUnit\Framework\TestCase;
 use Sip\ImageParser\TagUrlValidator;
 
-class TagValidatorTest extends TestCase
+class TagUrlValidatorTest extends TestCase
 {
     public function testAttributeValidate(): void
     {
@@ -16,10 +16,15 @@ class TagValidatorTest extends TestCase
 
         $this->assertFalse($tagValidator->attributeValidate('https://www.subdomain.my-domain.com'));
         $this->assertFalse($tagValidator->attributeValidate('https://subdomain.my-domain.com'));
-
         $this->assertFalse($tagValidator->attributeValidate('javascript: void(0)'));
         $this->assertFalse($tagValidator->attributeValidate('viber://@some-viber'));
         $this->assertFalse($tagValidator->attributeValidate('tel://0111'));
+    }
+
+    public function testIsValidByPort(): void
+    {
+        $tagValidator = new TagUrlValidator('localhost');
+        $this->assertTrue($tagValidator->attributeValidate('http://localhost:8000'));
 
     }
 

@@ -1,3 +1,6 @@
+1.3.2
+* changed [TagUrlValidatorTest] new tests function to localhost:8000
+
 1.3.1
 
 * feature [TagUrlValidator] The function deleteTagValidator
