@@ -17,9 +17,14 @@ abstract class AbstractParser implements ImageParserInterface
         $this->executionTime = microtime(true);
     }
 
-    public function addTagValidators(string $tagName, TagValidatorInterface $validator): self
+    public function addTagValidators(string $tagName, ?TagValidatorInterface $validator): self
     {
-         $this->tagValidators[$tagName] = $validator;
+         if ($validator !== null) {
+             $this->tagValidators[$tagName] = $validator;
+         } elseif (isset($this->tagValidators[$tagName])) {
+             unset($this->tagValidators[$tagName]);
+         }
+
          return $this;
     }
 
