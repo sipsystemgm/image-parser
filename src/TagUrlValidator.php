@@ -21,6 +21,7 @@ class TagUrlValidator implements TagValidatorInterface, TagUrlSubdomainValidator
 
     public function attributeValidate(string $value): bool
     {
+        $this->isSubDomain($value);
          return  (
             filter_var($value, FILTER_VALIDATE_URL) !== false
             && $this->isAllowSchemes($value, ['http', 'https'])

@@ -1,3 +1,6 @@
+1.3.3
+* changed [SymfonyCrawlerParser] moved functional to clean and validate url to abstract class
+
 1.3.2
 * changed [TagUrlValidatorTest] new tests function to localhost:8000
 

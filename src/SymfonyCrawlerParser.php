@@ -32,9 +32,7 @@ class SymfonyCrawlerParser extends AbstractParser
 
         foreach ($links as $tag) {
             $link = (new Crawler($tag))->attr('href');
-            if (!empty($link) && $this->validateTag('href', $link)) {
-                $this->addLinks($link);
-            }
+            $this->addLinks($link);
         }
     }
 }

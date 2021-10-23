@@ -61,10 +61,13 @@ abstract class AbstractParser implements ImageParserInterface
         return true;
     }
 
-    protected function addLinks(string $link): self
+    protected function addLinks(?string $link): self
     {
-        if (!in_array($link, $this->links)) {
-            $this->links[] = preg_replace('/\s+|\t+/', '', $link);
+        if (!empty($link) && !in_array($link, $this->links)) {
+            $link = preg_replace('/\s+|\t+/', '', $link);
+            if ($this->validateTag('href', $link)) {
+                $this->links[] = $link;
+            }
         }
         return $this;
     }
