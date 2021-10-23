@@ -27,6 +27,18 @@ class ImageParserTest extends TestCase
         }
     }
 
+    public function testDeleteTagValidator(): void
+    {
+        $tagValidator = new TagUrlValidator('some-domain.com');
+        $validatorName = 'url_test_validator';
+
+        foreach ($this->getParsersArray() as $parser) {
+            $this->assertFalse($parser->deleteTagValidator($validatorName));
+            $parser->addTagValidators($validatorName, $tagValidator);
+            $this->assertTrue($parser->deleteTagValidator($validatorName));
+        }
+    }
+
     private function getHtmlWithImagesAndLinks(): string
     {
         return '<!DOCTYPE html>

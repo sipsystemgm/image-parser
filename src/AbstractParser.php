@@ -19,14 +19,20 @@ abstract class AbstractParser implements ImageParserInterface
 
     public function addTagValidators(string $tagName, ?TagValidatorInterface $validator): self
     {
-         if ($validator !== null) {
-             $this->tagValidators[$tagName] = $validator;
-         } elseif (isset($this->tagValidators[$tagName])) {
-             unset($this->tagValidators[$tagName]);
-         }
-
-         return $this;
+        $this->tagValidators[$tagName] = $validator;
+        return $this;
     }
+
+    public function deleteTagValidator(string $tagName): bool
+    {
+        if (!isset($this->tagValidators[$tagName])) {
+            return false;
+        }
+
+        unset($this->tagValidators[$tagName]);
+        return true;
+    }
+
 
     public function getImgLength(): int
     {
