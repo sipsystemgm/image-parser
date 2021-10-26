@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a723b429444d912f660125649b93ad4",
+    "content-hash": "2bd8a8ac7f03d0dc1b02b3c30aefee53",
     "packages": [
         {
             "name": "symfony/css-selector",
@@ -2253,7 +2253,6 @@
                     "type": "github"
                 }
             ],
-            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
@@ -2479,7 +2478,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.2.5"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
 }

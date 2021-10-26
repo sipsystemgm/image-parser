@@ -1,3 +1,6 @@
+1.3.4
+* change [composer.json] added php version
+
 1.3.3
 * changed [SymfonyCrawlerParser] moved functional to clean and validate url to abstract class
 

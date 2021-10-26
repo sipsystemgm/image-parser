@@ -16,6 +16,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
+	"php": ">=7.2.5",
         "symfony/dom-crawler": "^5.3",
         "symfony/css-selector": "^5.3"
     },
